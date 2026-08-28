@@ -63,8 +63,14 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       <Reveal className="project" as="article" delay={index}>
         <div className="project__top">
           <div>
-            <span className="t-label project__no num">Project {project.no}</span>
-            <h3 className="t-card">{project.title}</h3>
+            <span
+              className={`chip project__badge${project.badgeAccent ? ' chip--accent' : ''}`}
+            >
+              {project.badge}
+            </span>
+            <h3 className="t-card">
+              <span className="project__no num">{project.no}</span> {project.title}
+            </h3>
             <p className="t-meta">{project.tagline}</p>
           </div>
           <div className="project__links">
@@ -119,7 +125,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                 <ShotButton key={shot.src} shot={shot} onOpen={open} eager={index === 0 && i < 4} />
               ))}
             </div>
-            <p className="t-meta shots__hint">화면을 누르면 크게 볼 수 있습니다.</p>
+            <p className="t-meta shots__hint">화면을 누르시면 크게 보실 수 있습니다.</p>
           </div>
         </div>
       </Reveal>
@@ -170,12 +176,11 @@ export default function Projects() {
     <section className="section shell" id="projects">
       <Reveal className="section-head">
         <span className="t-label">Projects</span>
-        <h2 className="t-display">
-          만든 것보다 <span className="mark">왜 그렇게 만들었는지</span>
-        </h2>
+        <h2 className="t-display">무엇을 만들었고, 왜 그렇게 했는지</h2>
         <p className="t-body">
-          네 개 모두 배포되어 있고 코드가 공개되어 있습니다. 각 프로젝트에서 실제로 부딪힌 문제와
-          그때 내린 판단을 순서대로 적었습니다.
+          네 개 모두 배포되어 있고 코드도 공개되어 있습니다. 만들면서 실제로 막혔던 지점과 그때
+          어떤 선택을 했는지를 함께 적었습니다. 학습을 목적으로 만든 프로젝트는 그렇게 표시해
+          두었습니다.
         </p>
       </Reveal>
 

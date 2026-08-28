@@ -18,7 +18,9 @@
 | 03 | [CineSearch](https://github.com/rami242424/movie-app) | TMDB API 기반 영화 검색·상세 조회 |
 | 04 | [Kanban Board](https://github.com/rami242424/kanban-board) | 드래그앤드롭 칸반 보드 |
 
-각 프로젝트는 **문제 → 판단 → 결과** 세 줄로 서술합니다. 기술 스택 나열은 판단의 근거로만 등장합니다.
+각 프로젝트는 **문제 → 판단 → 결과** 순으로 서술합니다. 학습 목적으로 만든 것은 카드에 그렇게 밝혀뒀습니다.
+
+섹션 순서는 채용 담당자가 먼저 볼 것부터 둡니다 — 프로젝트(증거) → 출판(외부에서 확인 가능한 실적) → 궤적(배경) → 기술 → 경력 → 연락처.
 
 ---
 
@@ -128,7 +130,7 @@ src/
 ├── App.tsx                    # 섹션 조립
 ├── index.css                  # DESIGN.md 토큰 + 전역 컴포넌트 스타일
 ├── data/
-│   ├── profile.ts             # 궤적 · 원칙 · 경력 · 스택
+│   ├── profile.ts             # 지표 · 궤적 · 경력 · 학력 · 스택
 │   └── projects.ts            # 프로젝트 4개 (문제/판단/결과)
 ├── hooks/
 │   ├── useReveal.ts           # 스크롤 등장 (1회)
@@ -138,10 +140,11 @@ src/
     ├── Reveal.tsx             # 등장 래퍼 (계단식 지연 최대 6개)
     ├── Nav.tsx                # 스크롤 시 blur 배경 + 활성 밑줄
     ├── Hero.tsx
-    ├── Track.tsx              # 궤적 + 일하는 방식
     ├── Projects.tsx           # 프로젝트 카드 + 라이트박스
+    ├── Publication.tsx        # 출간 기술서
+    ├── Track.tsx              # 공대 → 구매팀 → 매장·개발
     ├── Stack.tsx
-    ├── Experience.tsx         # 경력 · 학력 · 출판
+    ├── Experience.tsx         # 경력 · 학력
     └── Contact.tsx
 ```
 

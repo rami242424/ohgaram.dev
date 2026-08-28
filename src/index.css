@@ -458,6 +458,9 @@ button {
   gap: 6px;
   margin-top: var(--space-md);
 }
+.track__list--flush {
+  margin-top: 0;
+}
 .track__list li {
   display: flex;
   gap: 10px;
@@ -538,9 +541,13 @@ button {
   flex-wrap: wrap;
   margin-bottom: var(--space-md);
 }
+.project__badge {
+  margin-bottom: var(--space-sm);
+}
 .project__no {
-  display: block;
-  margin-bottom: var(--space-xs);
+  color: var(--secondary);
+  font-weight: 700;
+  margin-right: 2px;
 }
 .project__summary {
   max-width: 68ch;
@@ -559,6 +566,9 @@ button {
 .facts {
   border-top: 1px solid var(--divider);
   max-width: 78ch;
+}
+.facts--edu {
+  margin-top: var(--space-2xl);
 }
 .fact {
   display: grid;
@@ -709,14 +719,27 @@ button {
   padding: var(--space-xl);
 }
 .book__inner {
-  max-width: 62ch;
+  max-width: 64ch;
 }
-.book h3 {
-  font-size: 28px;
+.book__label {
+  color: inherit;
+  opacity: 0.72;
+  display: block;
+  margin-bottom: var(--space-sm);
+}
+.book h2 {
+  font-size: 32px;
   font-weight: 800;
   letter-spacing: -0.02em;
   line-height: 1.3;
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-xs);
+}
+.book__title-line {
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+}
+.book__cta {
+  margin-top: var(--space-lg);
 }
 .book p {
   font-size: 16px;

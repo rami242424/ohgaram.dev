@@ -3,7 +3,17 @@ import { useCountUp } from '../hooks/useCountUp'
 import { profile, stats } from '../data/profile'
 import Reveal from './Reveal'
 
-function Stat({ value, unit, label, start }: { value: number; unit: string; label: string; start: boolean }) {
+function Stat({
+  value,
+  unit,
+  label,
+  start,
+}: {
+  value: number
+  unit: string
+  label: string
+  start: boolean
+}) {
   const shown = useCountUp(value, start)
   return (
     <div>
@@ -24,28 +34,30 @@ export default function Hero() {
       <Reveal>
         <p className="hero__eyebrow t-label">
           <span className="hero__dot" aria-hidden="true" />
-          Frontend Developer · 오가람
+          오가람 · Frontend Developer
         </p>
       </Reveal>
 
       <Reveal delay={1}>
         <h1 className="t-hero hero__title">
-          사용자가 막힐 지점을 <span className="mark">먼저 찾습니다.</span>
+          제가 일하는 매장에서
+          <br />
+          <span className="mark">쓰고 있는 앱</span>을 만들었습니다
         </h1>
       </Reveal>
 
       <Reveal delay={2}>
         <p className="t-lead hero__lead">
-          매장에서 고객 응대를 단계화해 오안내를 줄였고, 지금은 같은 방식으로 코드의 에러 케이스를
-          미리 분기합니다. 근무 매장에서 매주 부딪히던 언어 장벽은 직접 도구로 만들어 해결했고,
-          지금도 실사용하며 고치고 있습니다.
+          인천공항 올리브영에서 3년째 외국인 고객을 응대하고 있습니다. 택스리펀이나 기내반입처럼
+          설명이 긴 안내를 매번 번역기에 새로 입력하는 게 번거로워서, 자주 쓰는 문구 99개를 14개
+          언어로 정리한 앱을 만들었습니다. 지금도 매장에서 쓰면서 조금씩 고쳐가고 있습니다.
         </p>
       </Reveal>
 
       <Reveal delay={3}>
         <div className="hero__actions">
           <a className="btn btn--primary" href="#projects">
-            프로젝트 4개 보기
+            프로젝트 보기
           </a>
           <a
             className="btn btn--secondary"
