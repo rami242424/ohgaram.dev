@@ -367,7 +367,7 @@ button {
 /* --------------------------------------------------------------- 히어로 */
 
 .hero {
-  padding-top: 148px;
+  padding-top: 105px;
   padding-bottom: var(--space-xl);
 }
 .hero__eyebrow {
@@ -861,7 +861,7 @@ button {
   }
 
   .hero {
-    padding-top: 112px;
+    padding-top: 84px;
   }
   .hero__title {
     max-width: none;
@@ -1072,4 +1072,48 @@ button {
     padding: var(--space-sm) var(--space-md);
     font-size: 14px;
   }
+}
+
+/* --------------------------------------------------------------- 한국어 줄바꿈 보강 */
+
+/*
+  본문에 <br /> 을 쓰지 않습니다. 화면 폭이 기기마다 달라 데스크톱에서 맞춘 줄바꿈은
+  모바일에서 반드시 깨집니다. 브라우저에 맡기되 두 가지만 지정합니다.
+  - word-break: keep-all  (body 에 이미 적용) 어절 중간에서 끊기지 않게
+  - text-wrap: pretty     마지막 줄에 한 단어만 남는 것을 방지
+  제목은 예외입니다. 줄 수가 적어 의도한 자리에서 끊는 편이 낫습니다.
+*/
+.t-body,
+.t-lead,
+.fact__value,
+.project__highlight,
+.case__evidence,
+.case__list li {
+  text-wrap: pretty;
+}
+
+.t-hero,
+.t-display,
+.t-section,
+.t-card,
+.case__block-title {
+  text-wrap: balance;
+}
+
+/* 히어로 — 제목과 본문 사이 호흡 */
+.hero__title {
+  margin-bottom: 32px;
+}
+.hero__lead > p + p {
+  margin-top: var(--space-sm);
+}
+
+/* 강조 버튼 — 라임 면 위 딥그린 잉크 (8.81:1) */
+.btn--accent {
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 700;
+}
+.btn--accent:hover {
+  background: #7fbe1c;
 }

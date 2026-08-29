@@ -3,6 +3,7 @@ import { caseStudy, type Shot } from '../data/projects'
 import Reveal from './Reveal'
 import ShotButton from './ShotButton'
 import Lightbox from './Lightbox'
+import Paragraphs from './Paragraphs'
 
 export default function CaseStudy() {
   const [lightbox, setLightbox] = useState<Shot | null>(null)
@@ -13,13 +14,12 @@ export default function CaseStudy() {
       <Reveal className="section-head">
         <span className="t-label">Case study</span>
         <h2 className="t-display">
-          매장에서 쓰려고 만들고,
+          직접 쓰기 때문에,
           <br />
-          <span className="mark">매장에서 고쳤습니다</span>
+          <span className="mark">고칠 곳이 바로 보입니다</span>
         </h2>
         <p className="t-body">
-          제가 일하는 인천공항 올리브영에서 쓰는 응대 앱입니다. 왜 만들었고, 매장에서 쓰면서
-          무엇이 바뀌었는지를 순서대로 적었습니다.
+          제가 근무하는 올리브영 인천공항점에서 사용하는 고객 응대 앱입니다.
         </p>
       </Reveal>
 
@@ -63,15 +63,21 @@ export default function CaseStudy() {
             </span>
             <div className="case__body">
               <h4 className="case__block-title">{block.title}</h4>
-              <p className="t-body">{block.body}</p>
+              <Paragraphs text={block.body} className="t-body" />
               {block.list && (
                 <ul className="case__list">
                   {block.list.map((line) => (
-                    <li key={line}>{line}</li>
+                    <li key={line}>
+                      <Paragraphs text={line} />
+                    </li>
                   ))}
                 </ul>
               )}
-              {block.evidence && <p className="case__evidence">{block.evidence}</p>}
+              {block.evidence && (
+                <div className="case__evidence">
+                  <Paragraphs text={block.evidence} />
+                </div>
+              )}
             </div>
           </Reveal>
         ))}

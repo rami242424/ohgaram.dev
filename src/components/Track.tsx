@@ -5,7 +5,7 @@ export default function Track() {
   return (
     <section className="section shell" id="track">
       <Reveal className="section-head">
-        <span className="t-label">Track</span>
+        <span className="t-label">Background</span>
         <h2 className="t-display">
           공대를 나와 구매팀에 있다가
           <br />

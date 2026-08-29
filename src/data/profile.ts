@@ -13,9 +13,9 @@ export const profile = {
  * 99 / 14 는 phrases.json, langs.ts 에서 그대로 확인됩니다.
  */
 export const stats = [
-  { value: 99, unit: '개 문구', label: '14개 언어로 정리한 매장 응대 문구' },
-  { value: 60, unit: '여 명', label: '앱을 공유한 매장 크루 단체방' },
-  { value: 4, unit: '년', label: '제조사 구매·생산관리 경력' },
+  { value: 99, unit: '개 문구', label: '매장에서 자주 쓰는 응대 문구' },
+  { value: 14, unit: '개 언어', label: '고객 국적 분포를 보고 선정' },
+  { value: 88, unit: '명', label: '앱을 공유한 크루 단체방 인원' },
 ] as const
 
 export const track = [
@@ -36,7 +36,7 @@ export const track = [
     role: '프론트엔드 전환',
     org: '멋쟁이사자처럼 프론트엔드 스쿨 7기',
     title: '아는 것과 설명하는 것은 달랐습니다',
-    body: '수료와 비슷한 시기에 스터디원 여덟 명이 자바스크립트 이론서를 함께 썼고, 저는 집필 총괄을 맡았습니다. 안다고 생각했던 개념도 막상 글로 풀어보면 빈 곳이 보이더군요.',
+    body: '수료와 비슷한 시기에 스터디원 여덟 명이 자바스크립트 이론서를 함께 썼고, 저는 집필 총괄을 맡았습니다. 안다고 생각했던 개념도 글로 풀어보면 설명이 막히는 자리가 있었습니다.',
     points: [
       'JavaScript(ES6+) · React · Redux Toolkit',
       '팀 프로젝트 — 운동 기록 앱 Gymnect (React · Recoil · styled-components)',
@@ -77,7 +77,7 @@ export const experience = [
     points: [
       '영어 · 중국어 · 일본어로 다국적 고객의 결제 · 택스리펀 · 할인 적용 응대',
       '고객의 피부 타입과 요구를 파악해 상품을 추천하고, 미취급 상품은 온라인·인근 지점까지 안내',
-      '응대용 번역 앱 OY-trans 제작 — 점장·직원 동의를 거쳐 크루 단체방에 공유',
+      '응대용 번역 앱 OY-trans 제작 — 점장·직원 동의를 거쳐 매장 단체방 88명에게 공유',
     ],
   },
   {

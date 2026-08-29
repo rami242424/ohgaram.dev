@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react'
 import { useActiveSection } from '../hooks/useActiveSection'
 
 const LINKS = [
-  { id: 'oy-trans', label: 'OY-trans' },
+  { id: 'oy-trans', label: 'Case Study' },
   { id: 'projects', label: 'Projects' },
-  { id: 'publication', label: 'Publish' },
-  { id: 'track', label: 'Track' },
+  { id: 'publication', label: 'Publication' },
+  { id: 'track', label: 'Background' },
   { id: 'stack', label: 'Skills' },
   { id: 'experience', label: 'Experience' },
   { id: 'contact', label: 'Contact' },
@@ -28,7 +28,7 @@ export default function Nav() {
     <header className="nav" data-scrolled={scrolled}>
       <nav className="shell nav__inner" aria-label="주요 섹션">
         <a className="nav__brand" href="#top">
-          오가람 Frontend Developer
+          오가람
         </a>
         <ul className="nav__links">
           {LINKS.map((link) => (
