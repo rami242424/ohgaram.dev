@@ -223,6 +223,11 @@ button {
 }
 
 /* 라임 마킹 — 면으로만 사용. 텍스트 색으로는 절대 쓰지 않음 */
+/* 끊기면 안 되는 어절 묶음. 짧은 구절에만 씁니다. */
+.nb {
+  white-space: nowrap;
+}
+
 .mark {
   background: linear-gradient(transparent 58%, var(--accent) 58%);
   color: var(--fg);
@@ -1034,6 +1039,49 @@ button {
   line-height: 1.6;
   color: var(--fg);
 }
+/*
+  목록 앞머리의 - 는 가상 요소로 그립니다.
+  문자를 데이터에 넣으면 글 검사기가 문장의 일부로 읽습니다.
+  도식(체인 그림)과 예시 줄에는 붙이지 않습니다.
+*/
+.case__list > li {
+  position: relative;
+  padding-left: 14px;
+}
+.case__list > li::before {
+  content: '-';
+  position: absolute;
+  left: 0;
+  color: var(--muted);
+}
+.case__list--plain > li,
+.case__list > li.case__item {
+  padding-left: 0;
+}
+.case__list--plain > li::before,
+.case__list > li.case__item::before {
+  content: none;
+}
+
+/* 라벨이 붙은 항목은 서로 붙어 보이지 않게 간격을 넓힙니다. */
+.case__list:has(.case__item) {
+  gap: var(--space-md);
+}
+.case__tag {
+  display: inline-block;
+  margin-bottom: 6px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  /* 라임 원색 면은 한 화면에 한 곳만 둡니다. 목록 라벨은 30% 로 옅게 깝니다. */
+  background: #ddf2bc;
+  color: var(--fg);
+  font-size: 14px;
+  font-weight: 700;
+}
+.case__item > .case__tag + p {
+  margin-top: 0;
+}
+
 .case__evidence {
   margin-top: var(--space-md);
   padding-left: var(--space-md);

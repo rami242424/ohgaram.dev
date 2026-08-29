@@ -16,7 +16,7 @@ export default function CaseStudy() {
         <h2 className="t-display">
           직접 쓰기 때문에,
           <br />
-          <span className="mark">고칠 곳이 바로 보입니다</span>
+          <span className="mark">무엇이 필요한지 바로 보입니다</span>.
         </h2>
         <p className="t-body">
           제가 근무하는 올리브영 인천공항점에서 사용하는 고객 응대 앱입니다.
@@ -65,12 +65,19 @@ export default function CaseStudy() {
               <h4 className="case__block-title">{block.title}</h4>
               <Paragraphs text={block.body} className="t-body" />
               {block.list && (
-                <ul className="case__list">
-                  {block.list.map((line) => (
-                    <li key={line}>
-                      <Paragraphs text={line} />
-                    </li>
-                  ))}
+                <ul className={block.listPlain ? 'case__list case__list--plain' : 'case__list'}>
+                  {block.list.map((item) =>
+                    typeof item === 'string' ? (
+                      <li key={item}>
+                        <Paragraphs text={item} />
+                      </li>
+                    ) : (
+                      <li key={item.label} className="case__item">
+                        <span className="case__tag">{item.label}</span>
+                        <Paragraphs text={item.text} />
+                      </li>
+                    ),
+                  )}
                 </ul>
               )}
               {block.evidence && (
