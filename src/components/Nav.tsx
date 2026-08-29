@@ -3,12 +3,12 @@ import { useActiveSection } from '../hooks/useActiveSection'
 
 const LINKS = [
   { id: 'oy-trans', label: 'OY-trans' },
-  { id: 'projects', label: '프로젝트' },
-  { id: 'publication', label: '출판' },
-  { id: 'track', label: '궤적' },
-  { id: 'stack', label: '기술' },
-  { id: 'experience', label: '경력' },
-  { id: 'contact', label: '연락' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'publication', label: 'Publish' },
+  { id: 'track', label: 'Track' },
+  { id: 'stack', label: 'Skills' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'contact', label: 'Contact' },
 ] as const
 
 const IDS = LINKS.map((l) => l.id)
@@ -28,7 +28,7 @@ export default function Nav() {
     <header className="nav" data-scrolled={scrolled}>
       <nav className="shell nav__inner" aria-label="주요 섹션">
         <a className="nav__brand" href="#top">
-          오가람
+          오가람 Frontend Developer
         </a>
         <ul className="nav__links">
           {LINKS.map((link) => (
