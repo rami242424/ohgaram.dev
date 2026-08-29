@@ -1,101 +1,44 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useState } from 'react'
 import { projects, type Project, type Shot } from '../data/projects'
 import Reveal from './Reveal'
+import ShotButton from './ShotButton'
+import Lightbox from './Lightbox'
 
-function ShotButton({
-  shot,
+function ProjectCard({
+  project,
+  index,
   onOpen,
-  eager,
 }: {
-  shot: Shot
+  project: Project
+  index: number
   onOpen: (shot: Shot) => void
-  eager?: boolean
 }) {
   return (
-    <button
-      type="button"
-      className={`shot${shot.wide ? ' shot--wide' : ''}`}
-      onClick={() => onOpen(shot)}
-      aria-label={`${shot.alt} — 크게 보기`}
-    >
-      {shot.type === 'video' ? (
-        <video
-          poster={shot.poster}
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="metadata"
-          aria-hidden="true"
-        >
-          {(shot.sources ?? [{ src: shot.src, type: 'video/mp4' }]).map((s) => (
-            <source key={s.src} src={s.src} type={s.type} />
-          ))}
-        </video>
-      ) : (
-        <img src={shot.src} alt={shot.alt} loading={eager ? 'eager' : 'lazy'} decoding="async" />
-      )}
-    </button>
-  )
-}
-
-function ProjectCard({ project, index }: { project: Project; index: number }) {
-  const [lightbox, setLightbox] = useState<Shot | null>(null)
-
-  useEffect(() => {
-    if (!lightbox) return
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setLightbox(null)
-    }
-    const prev = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
-    window.addEventListener('keydown', onKey)
-    return () => {
-      window.removeEventListener('keydown', onKey)
-      document.body.style.overflow = prev
-    }
-  }, [lightbox])
-
-  const open = useCallback((shot: Shot) => setLightbox(shot), [])
-
-  return (
-    <>
-      <Reveal className="project" as="article" delay={index}>
-        <div className="project__top">
-          <div>
-            <span
-              className={`chip project__badge${project.badgeAccent ? ' chip--accent' : ''}`}
-            >
-              {project.badge}
-            </span>
-            <h3 className="t-card">
-              <span className="project__no num">{project.no}</span> {project.title}
-            </h3>
-            <p className="t-meta">{project.tagline}</p>
-          </div>
-          <div className="project__links">
-            <a
-              className="btn btn--primary"
-              href={project.demo}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              라이브 데모<span className="sr-only"> (새 창)</span>
-            </a>
-            <a
-              className="btn btn--secondary"
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              GitHub<span className="sr-only"> (새 창)</span>
-            </a>
-          </div>
+    <Reveal className={`project${project.compact ? ' project--compact' : ''}`} as="article" delay={index}>
+      <div className="project__top">
+        <div>
+          <span className="chip project__badge">{project.badge}</span>
+          <h3 className="t-card">
+            <span className="project__no num">{project.no}</span> {project.title}
+          </h3>
+          <p className="t-meta">{project.tagline}</p>
         </div>
+        <div className="project__links">
+          <a className="btn btn--primary" href={project.demo} target="_blank" rel="noopener noreferrer">
+            라이브 데모<span className="sr-only"> (새 창)</span>
+          </a>
+          <a className="btn btn--secondary" href={project.github} target="_blank" rel="noopener noreferrer">
+            GitHub<span className="sr-only"> (새 창)</span>
+          </a>
+        </div>
+      </div>
 
-        <p className="t-body project__summary">{project.summary}</p>
+      <p className="t-body project__summary">{project.summary}</p>
 
-        <div className="project__body">
+      <div className="project__body">
+        {project.compact ? (
+          <p className="project__highlight">{project.highlight}</p>
+        ) : (
           <div className="facts">
             <div className="fact">
               <span className="fact__label">문제</span>
@@ -110,85 +53,55 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               <p className="fact__value">{project.result}</p>
             </div>
           </div>
+        )}
 
-          <ul className="project__stack">
-            {project.stack.map((tech) => (
-              <li key={tech} className="chip">
-                {tech}
-              </li>
+        <ul className="project__stack">
+          {project.stack.map((tech) => (
+            <li key={tech} className="chip">
+              {tech}
+            </li>
+          ))}
+        </ul>
+
+        <div>
+          <div className={`shots${project.shotLayout === 'pair' ? ' shots--pair' : ''}`}>
+            {project.shots.map((shot) => (
+              <ShotButton key={shot.src} shot={shot} onOpen={onOpen} />
             ))}
-          </ul>
-
-          <div>
-            <div className={`shots${project.shotLayout === 'pair' ? ' shots--pair' : ''}`}>
-              {project.shots.map((shot, i) => (
-                <ShotButton key={shot.src} shot={shot} onOpen={open} eager={index === 0 && i < 4} />
-              ))}
-            </div>
-            <p className="t-meta shots__hint">화면을 누르시면 크게 보실 수 있습니다.</p>
           </div>
+          <p className="t-meta shots__hint">
+            {project.compact
+              ? '자세한 판단 과정은 GitHub README에 정리해두었습니다.'
+              : '화면을 누르시면 크게 보실 수 있습니다.'}
+          </p>
         </div>
-      </Reveal>
-
-      {lightbox && (
-        <div
-          className="lightbox"
-          role="dialog"
-          aria-modal="true"
-          aria-label={lightbox.alt}
-          onClick={() => setLightbox(null)}
-        >
-          <button
-            type="button"
-            className="lightbox__close"
-            onClick={() => setLightbox(null)}
-            aria-label="닫기"
-            autoFocus
-          >
-            ✕
-          </button>
-          {lightbox.type === 'video' ? (
-            <video
-              poster={lightbox.poster}
-              autoPlay
-              loop
-              muted
-              playsInline
-              controls
-              onClick={(e) => e.stopPropagation()}
-            >
-              {(lightbox.sources ?? [{ src: lightbox.src, type: 'video/mp4' }]).map((s) => (
-                <source key={s.src} src={s.src} type={s.type} />
-              ))}
-            </video>
-          ) : (
-            <img src={lightbox.src} alt={lightbox.alt} onClick={(e) => e.stopPropagation()} />
-          )}
-          <p className="lightbox__caption">{lightbox.alt}</p>
-        </div>
-      )}
-    </>
+      </div>
+    </Reveal>
   )
 }
 
 export default function Projects() {
+  const [lightbox, setLightbox] = useState<Shot | null>(null)
+  const open = useCallback((shot: Shot) => setLightbox(shot), [])
+
   return (
     <section className="section shell" id="projects">
       <Reveal className="section-head">
-        <span className="t-label">Projects</span>
-        <h2 className="t-display">무엇을 만들었고, 왜 그렇게 했는지</h2>
+        <span className="t-label">Other projects</span>
+        <h2 className="t-section">그 밖에 만든 것들</h2>
         <p className="t-body">
-          네 개 모두 배포되어 있고 코드도 공개되어 있습니다. 만들면서 실제로 막혔던 지점과 그때
-          어떤 선택을 했는지를 함께 적었습니다. 학습을 목적으로 만든 프로젝트는 그렇게 표시해
-          두었습니다.
+          세 개 모두 배포되어 있고 코드도 공개되어 있습니다. 학습을 목적으로 만든 프로젝트는 그렇게
+          표시해 두었습니다.
         </p>
       </Reveal>
 
       <div className="projects">
         {projects.map((project, i) => (
-          <ProjectCard key={project.no} project={project} index={i} />
+          <ProjectCard key={project.no} project={project} index={i} onOpen={open} />
         ))}
       </div>
+
+      {lightbox && <Lightbox shot={lightbox} onClose={() => setLightbox(null)} />}
     </section>
   )
 }

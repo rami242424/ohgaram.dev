@@ -14,7 +14,7 @@ export default function Publication() {
             기획부터 편집·검수·배포까지 마무리를 챙겼습니다. 글로 설명하려다 보니 제가 대강 알고
             넘어갔던 부분이 하나씩 드러나더군요.
           </p>
-          <p className="book__meta">출간 후 리디북스 프로그래밍 분야 인기 순위 1위</p>
+          <p className="book__meta">리디북스 무료 배포 · 개발자 8인 공저</p>
           <a
             className="btn btn--primary book__cta"
             href={profile.book}

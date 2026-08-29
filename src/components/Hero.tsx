@@ -50,14 +50,15 @@ export default function Hero() {
         <p className="t-lead hero__lead">
           인천공항 올리브영에서 3년째 외국인 고객을 응대하고 있습니다. 택스리펀이나 기내반입처럼
           설명이 긴 안내를 매번 번역기에 새로 입력하는 게 번거로워서, 자주 쓰는 문구 99개를 14개
-          언어로 정리한 앱을 만들었습니다. 지금도 매장에서 쓰면서 조금씩 고쳐가고 있습니다.
+          언어로 정리한 앱을 만들었습니다. 점장님과 직원분들 동의를 거쳐 크루 단체방에 공유했고,
+          지금도 매장에서 쓰면서 고쳐가고 있습니다.
         </p>
       </Reveal>
 
       <Reveal delay={3}>
         <div className="hero__actions">
-          <a className="btn btn--primary" href="#projects">
-            프로젝트 보기
+          <a className="btn btn--primary" href="#oy-trans">
+            어떻게 만들었는지 보기
           </a>
           <a
             className="btn btn--secondary"

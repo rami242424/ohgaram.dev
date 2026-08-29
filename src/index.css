@@ -968,3 +968,108 @@ button {
   white-space: nowrap;
   border: 0;
 }
+
+/* --------------------------------------------------------------- 사례 연구 */
+
+.case__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--divider);
+}
+.case__title {
+  margin-block: var(--space-sm) 2px;
+}
+.case__shots {
+  margin-top: var(--space-lg);
+}
+
+.case {
+  display: grid;
+  gap: 1px;
+  background: var(--divider);
+  border-block: 1px solid var(--divider);
+  margin-top: var(--space-2xl);
+  counter-reset: case;
+}
+.case__block {
+  background: var(--canvas);
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: var(--space-xl);
+  padding-block: var(--space-xl);
+  transition: background var(--dur-state) var(--ease-state);
+}
+.case__block:hover {
+  background: var(--surface);
+}
+.case__no {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--secondary);
+  line-height: 1.3;
+}
+.case__body {
+  max-width: 74ch;
+}
+.case__block-title {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.4;
+  margin-bottom: var(--space-sm);
+}
+.case__list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  background: var(--surface);
+  border-radius: var(--radius-action);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--fg);
+}
+.case__evidence {
+  margin-top: var(--space-md);
+  padding-left: var(--space-md);
+  border-left: 2px solid var(--accent);
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+/* --------------------------------------------------------------- 요약 카드 */
+
+.project--compact .project__body {
+  gap: var(--space-lg);
+}
+.project__highlight {
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: var(--fg);
+  max-width: 76ch;
+  padding-left: var(--space-md);
+  border-left: 2px solid var(--divider);
+}
+
+@media (max-width: 767px) {
+  .case__block {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-xs);
+  }
+  .case__no {
+    font-size: 15px;
+  }
+  .case__block-title {
+    font-size: 18px;
+  }
+  .case__list {
+    padding: var(--space-sm) var(--space-md);
+    font-size: 14px;
+  }
+}

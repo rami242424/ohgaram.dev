@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useActiveSection } from '../hooks/useActiveSection'
 
 const LINKS = [
+  { id: 'oy-trans', label: 'OY-trans' },
   { id: 'projects', label: '프로젝트' },
   { id: 'publication', label: '출판' },
   { id: 'track', label: '궤적' },
