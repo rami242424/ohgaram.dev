@@ -11,7 +11,7 @@ export default function Paragraphs({ text, className = '' }: { text: string; cla
   return (
     <>
       {blocks.map((block, i) => (
-        <p key={i} className={className} style={i > 0 ? { marginTop: 'var(--space-md)' } : undefined}>
+        <p key={i} className={className} style={i > 0 ? { marginTop: 'var(--space-sm)' } : undefined}>
           {block}
         </p>
       ))}
