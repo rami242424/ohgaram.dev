@@ -50,8 +50,9 @@ export default function Hero() {
         <div className="hero__lead">
           <p className="t-lead">올리브영 인천공항점에서 3년째 외국인 고객을 응대합니다.</p>
           <p className="t-lead">
-            공항점 특성상 택스리펀과 기내반입 규정 안내는 외국인 고객{' '}
-            <span className="nb">대부분에게</span> 전달됩니다.
+            {/* 공항점 특성상 택스리펀과 기내반입 규정 안내는 외국인 고객{' '}
+            <span className="nb">대부분에게</span> 전달됩니다. */}
+            공항점 특성상 택스리펀과 기내반입 규정 안내는 외국인 고객 대부분에게 전달됩니다.
           </p>
           <p className="t-lead">
             매번 번역기에 같은 문장을 입력하는 대신,{' '}

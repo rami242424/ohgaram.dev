@@ -393,7 +393,7 @@ button {
   margin-bottom: var(--space-lg);
 }
 .hero__lead {
-  max-width: 56ch;
+  max-width: 100ch;
   margin-bottom: var(--space-xl);
 }
 .hero__actions {
