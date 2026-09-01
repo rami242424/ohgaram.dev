@@ -36,24 +36,20 @@ function ProjectCard({
       <p className="t-body project__summary">{project.summary}</p>
 
       <div className="project__body">
-        {project.compact ? (
-          <p className="project__highlight">{project.highlight}</p>
-        ) : (
-          <div className="facts">
-            <div className="fact">
-              <span className="fact__label">문제</span>
-              <p className="fact__value">{project.problem}</p>
-            </div>
-            <div className="fact">
-              <span className="fact__label">판단</span>
-              <p className="fact__value">{project.decision}</p>
-            </div>
-            <div className="fact fact--result">
-              <span className="fact__label">결과</span>
-              <p className="fact__value">{project.result}</p>
-            </div>
+        <div className="facts">
+          <div className="fact">
+            <span className="fact__label">문제</span>
+            <p className="fact__value">{project.problem}</p>
           </div>
-        )}
+          <div className="fact">
+            <span className="fact__label">판단</span>
+            <p className="fact__value">{project.decision}</p>
+          </div>
+          <div className="fact fact--result">
+            <span className="fact__label">결과</span>
+            <p className="fact__value">{project.result}</p>
+          </div>
+        </div>
 
         <ul className="project__stack">
           {project.stack.map((tech) => (
@@ -69,11 +65,7 @@ function ProjectCard({
               <ShotButton key={shot.src} shot={shot} onOpen={onOpen} />
             ))}
           </div>
-          <p className="t-meta shots__hint">
-            {project.compact
-              ? '자세한 판단 과정은 GitHub README에 정리해두었습니다.'
-              : '화면을 누르시면 크게 보실 수 있습니다.'}
-          </p>
+          <p className="t-meta shots__hint">화면을 누르시면 크게 보실 수 있습니다.</p>
         </div>
       </div>
     </Reveal>
@@ -90,8 +82,8 @@ export default function Projects() {
         <span className="t-label">Other projects</span>
         <h2 className="t-section">그 밖에 만든 것들</h2>
         <p className="t-body">
-          세 개 모두 배포했고, 코드는 GitHub에 공개했습니다. 카드마다 그 프로젝트에서 가장 오래
-          붙잡았던 문제를 적었습니다.
+          세 개 모두 배포했고, 코드는 GitHub에 공개했습니다. 무엇을 만들었는지보다, 어디서 막혔고
+          어떻게 풀었는지를 적었습니다.
         </p>
       </Reveal>
 

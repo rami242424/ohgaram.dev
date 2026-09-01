@@ -132,12 +132,11 @@ export type Project = {
   badge: string
   tagline: string
   summary: string
-  /** compact 카드는 핵심 한 덩어리만, full 카드는 문제/판단/결과를 모두 씁니다. */
+  /** 세 카드 모두 문제/판단/결과로 씁니다. compact 는 분량과 여백만 줄입니다. */
   compact: boolean
-  problem?: string
-  decision?: string
-  result?: string
-  highlight?: string
+  problem: string
+  decision: string
+  result: string
   stack: string[]
   demo: string
   github: string
@@ -191,8 +190,12 @@ export const projects: Project[] = [
     compact: true,
     summary:
       '키워드 검색, 최신순·별점순 정렬, 상세 페이지 이동, 로딩 중 스켈레톤까지 넣어봤습니다.',
-    highlight:
-      'isLoading, isError 같은 boolean을 늘려가다 보니 "로딩이면서 에러"처럼 있을 수 없는 조합이 생겼습니다. fetch 상태는 idle · loading · success · error 중 하나뿐입니다. 그래서 Discriminated Union 하나로 바꿨습니다. success일 때만 data에 접근할 수 있어서, 없는 데이터를 읽는 실수를 컴파일 단계에서 걸러냅니다.',
+    problem:
+      'isLoading, isError 같은 boolean을 늘려가다 보니 "로딩이면서 에러"처럼 있을 수 없는 조합이 생겼습니다.',
+    decision:
+      'fetch 상태는 idle · loading · success · error 중 하나뿐입니다. 그래서 Discriminated Union 하나로 바꿨습니다.',
+    result:
+      'success일 때만 data에 접근할 수 있어서, 없는 데이터를 읽는 실수를 컴파일 단계에서 걸러냅니다.',
     stack: ['React 18', 'TypeScript', 'Tailwind CSS', 'React Router v6', 'TMDB API'],
     demo: 'https://movie-app-zeta-ruby.vercel.app/',
     github: 'https://github.com/rami242424/movie-app',
@@ -207,8 +210,12 @@ export const projects: Project[] = [
     compact: true,
     summary:
       'TO DO · DOING · DONE 세 칸으로 할 일을 관리합니다. 카드 추가·수정·삭제, 칸 사이 이동, 새로고침 후 유지까지 넣었습니다.',
-    highlight:
-      '드래그 중인 칸에 transform: scale()을 줬더니 카드가 엉뚱한 칸에 떨어졌습니다. 콘솔에는 에러가 전혀 뜨지 않았습니다. 라이브러리는 마우스 위치를 픽셀 좌표로 계산하는데, 부모에 transform이 걸리면 그 기준이 틀어집니다. 칸에는 배경색만 주고 transform은 들려 있는 카드에만 남겼습니다.',
+    problem:
+      '드래그 중인 칸에 transform: scale()을 줬더니 카드가 엉뚱한 칸에 떨어졌습니다. 콘솔에는 에러가 전혀 뜨지 않았습니다.',
+    decision:
+      '라이브러리는 마우스 위치를 픽셀 좌표로 계산하는데, 부모에 transform이 걸리면 그 기준이 틀어집니다. 원인을 좌표계로 좁혔습니다.',
+    result:
+      '칸에는 배경색만 주고 transform은 들려 있는 카드에만 남겼습니다.',
     stack: ['React 18', 'TypeScript', 'Recoil', 'recoil-persist', '@hello-pangea/dnd', 'styled-components'],
     demo: 'https://kanban-board-nu-ruby.vercel.app/',
     github: 'https://github.com/rami242424/kanban-board',
