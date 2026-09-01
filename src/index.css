@@ -218,8 +218,15 @@ button {
   margin-bottom: var(--space-md);
 }
 .section-head .t-body {
-  margin-top: var(--space-md);
   max-width: 62ch;
+}
+/*
+  간격은 "본문이라서"가 아니라 "제목 다음이라서" 생깁니다.
+  그래서 조건을 제목 뒤 첫 문단으로 한정합니다.
+  이어지는 문단은 붙어서 한 덩어리로 읽힙니다.
+*/
+.section-head h2 + .t-body {
+  margin-top: var(--space-md);
 }
 
 /* 라임 마킹 — 면으로만 사용. 텍스트 색으로는 절대 쓰지 않음 */
@@ -393,7 +400,7 @@ button {
   margin-bottom: var(--space-lg);
 }
 .hero__lead {
-  max-width: 100ch;
+  max-width: 56ch;
   margin-bottom: var(--space-xl);
 }
 .hero__actions {

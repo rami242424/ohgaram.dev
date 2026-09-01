@@ -81,9 +81,9 @@ export default function Projects() {
       <Reveal className="section-head">
         <span className="t-label">Other projects</span>
         <h2 className="t-section">그 밖에 만든 것들</h2>
+        <p className="t-body">세 개 모두 배포했고, 코드는 GitHub에 공개했습니다.</p>
         <p className="t-body">
-          세 개 모두 배포했고, 코드는 GitHub에 공개했습니다. 무엇을 만들었는지보다, 어디서 막혔고
-          어떻게 풀었는지를 적었습니다.
+          무엇을 만들었는지보다, 어디서 막혔고 어떻게 풀었는지를 적었습니다.
         </p>
       </Reveal>
 
