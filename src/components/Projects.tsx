@@ -90,8 +90,8 @@ export default function Projects() {
         <span className="t-label">Other projects</span>
         <h2 className="t-section">그 밖에 만든 것들</h2>
         <p className="t-body">
-          세 개 모두 배포되어 있고 코드도 공개되어 있습니다. 학습을 목적으로 만든 프로젝트는 그렇게
-          표시해 두었습니다.
+          세 개 모두 배포했고, 코드는 GitHub에 공개했습니다. 카드마다 그 프로젝트에서 가장 오래
+          붙잡았던 문제를 적었습니다.
         </p>
       </Reveal>
 
