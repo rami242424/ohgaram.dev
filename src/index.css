@@ -614,6 +614,36 @@ button {
   gap: var(--space-xs);
   margin-top: var(--space-lg);
 }
+
+/*
+  프로젝트 대표색 — 각 앱 화면에서 가져왔습니다.
+  스택 칩에만 씁니다. 버튼·제목·배지로 번지면 사이트가 프로젝트 수만큼 쪼개집니다.
+  테두리는 inset 그림자로 그려 칩 높이가 흔들리지 않게 둡니다.
+  대비비는 모두 6.4:1 이상입니다 (기준 4.5:1).
+*/
+.project__stack .chip {
+  font-weight: 600;
+}
+.project__stack--lime .chip {
+  background: #f0f8e2;
+  color: #2f4a10;
+  box-shadow: inset 0 0 0 1px #dcecc0;
+}
+.project__stack--violet .chip {
+  background: #f1edfc;
+  color: #4c31a6;
+  box-shadow: inset 0 0 0 1px #e0d7f8;
+}
+.project__stack--red .chip {
+  background: #fdecec;
+  color: #a32626;
+  box-shadow: inset 0 0 0 1px #f8d7d7;
+}
+.project__stack--navy .chip {
+  background: #eaeefa;
+  color: #26397f;
+  box-shadow: inset 0 0 0 1px #d5ddf4;
+}
 .shots__hint {
   margin-top: var(--space-sm);
 }

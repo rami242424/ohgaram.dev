@@ -90,7 +90,7 @@ export default function CaseStudy() {
         ))}
       </ol>
 
-      <Reveal className="project__stack" as="ul" delay={1}>
+      <Reveal className={`project__stack project__stack--${caseStudy.tint}`} as="ul" delay={1}>
         {caseStudy.stack.map((tech) => (
           <li key={tech} className="chip">
             {tech}

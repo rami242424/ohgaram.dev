@@ -8,6 +8,12 @@ export type Shot = {
   wide?: boolean
 }
 
+/**
+ * 프로젝트 대표색. 각 앱 화면에서 가져왔습니다.
+ * 스택 칩에만 쓰고 버튼·제목·배지로 번지지 않습니다. (DESIGN.md 참고)
+ */
+export type Tint = 'lime' | 'violet' | 'red' | 'navy'
+
 /* ------------------------------------------------------------------ 사례 연구 */
 
 /**
@@ -35,6 +41,8 @@ export const caseStudy = {
   demo: 'https://oy-trans.netlify.app',
   github: 'https://github.com/rami242424/oy-trans',
   stack: ['React 19', 'TypeScript', 'Tailwind CSS 4', 'PWA', 'localStorage', 'Netlify'],
+  /** 스택 칩 색. 앱 화면에서 가져온 대표색이며, 칩 밖으로는 쓰지 않습니다. */
+  tint: 'lime' as Tint,
   blocks: [
     {
       no: '01',
@@ -142,6 +150,8 @@ export type Project = {
   github: string
   shots: Shot[]
   shotLayout: 'pair' | 'single'
+  /** 스택 칩 색. 앱 화면에서 가져온 대표색입니다. */
+  tint: Tint
 }
 
 export const projects: Project[] = [
@@ -149,10 +159,10 @@ export const projects: Project[] = [
     no: '02',
     title: 'dayMatch',
     badge: '직접 기획 · 구현',
-    tagline: '각자 되는 날을 표시하면, 다 같이 되는 날을 골라주는 웹앱',
+    tagline: '각자 개인의 스케줄을 달력에 날을 표시하면, 공통적으로 가능 한 날을 정리해서 알려주는 웹앱',
     compact: false,
     summary:
-      '로그인 없이 방 코드 하나로 모입니다. 달력에 좋아요·괜찮아요·바빠요를 표시하면 전원이 되는 날부터 묶어서 보여줍니다.',
+      '로그인 없이 공유 된 "방 코드" 하나로 모입니다. 달력에 좋아요·괜찮아요·바빠요를 표시하면 전원이 되는 날부터 묶어서 보여줍니다.',
     problem:
       '처음에는 선택마다 점수를 매겨 더하는 방식으로 만들었습니다. 그런데 좋아요 3 + 바빠요 1과 좋아요 2 + 바빠요 0의 점수가 같았습니다. 한 명이라도 못 오면 그날은 약속이 성립하지 않는데, 점수만으로는 그 차이가 드러나지 않았습니다.',
     decision:
@@ -163,6 +173,7 @@ export const projects: Project[] = [
     demo: 'https://day-match-lime.vercel.app',
     github: 'https://github.com/rami242424/dayMatch',
     shotLayout: 'pair',
+    tint: 'violet',
     shots: [
       {
         src: '/projects/daymatch-heatmap.jpg',
@@ -200,6 +211,7 @@ export const projects: Project[] = [
     demo: 'https://movie-app-zeta-ruby.vercel.app/',
     github: 'https://github.com/rami242424/movie-app',
     shotLayout: 'single',
+    tint: 'red',
     shots: [{ src: '/projects/cine-grid.jpg', alt: 'CineSearch 영화 검색 결과 그리드', wide: true }],
   },
   {
@@ -220,6 +232,7 @@ export const projects: Project[] = [
     demo: 'https://kanban-board-nu-ruby.vercel.app/',
     github: 'https://github.com/rami242424/kanban-board',
     shotLayout: 'single',
+    tint: 'navy',
     shots: [
       {
         src: '/projects/kanban-demo.mp4',

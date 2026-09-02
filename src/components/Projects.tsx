@@ -51,7 +51,7 @@ function ProjectCard({
           </div>
         </div>
 
-        <ul className="project__stack">
+        <ul className={`project__stack project__stack--${project.tint}`}>
           {project.stack.map((tech) => (
             <li key={tech} className="chip">
               {tech}
