@@ -682,6 +682,12 @@ button {
   aspect-ratio: 16 / 9;
 }
 
+/* 세로로 긴 모바일 화면은 위쪽만 남기면 본문이 사라집니다.
+   비율을 화면에 맞추고, 기준점은 데이터에서 이미지마다 정합니다. */
+.case__shots .shot img {
+  aspect-ratio: 9 / 16;
+}
+
 /* --------------------------------------------------------------- 라이트박스 */
 
 .lightbox {
@@ -692,14 +698,17 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-xl);
+  /* 아래쪽은 캡션이 겹치지 않도록 더 비워 둡니다. */
+  padding: var(--space-xl) var(--space-xl) calc(var(--space-xl) * 2.6);
   cursor: zoom-out;
 }
 .lightbox img,
 .lightbox video {
   max-width: 100%;
-  max-height: 88vh;
+  /* 88vh 로 두면 패딩만큼 넘쳐서 아래가 잘립니다. 남은 공간을 기준으로 잡습니다. */
+  max-height: 100%;
   width: auto;
+  height: auto;
   object-fit: contain;
   border-radius: var(--radius-action);
   cursor: default;
@@ -970,7 +979,7 @@ button {
     justify-self: start;
   }
   .lightbox {
-    padding: var(--space-md);
+    padding: var(--space-md) var(--space-md) calc(var(--space-md) * 4.5);
   }
 }
 

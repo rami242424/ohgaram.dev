@@ -6,6 +6,11 @@ export type Shot = {
   poster?: string
   type?: 'video'
   wide?: boolean
+  /**
+   * 썸네일에서 남길 부분. 기본은 위쪽입니다.
+   * 글이 화면 가운데 있는 고객 표시 화면은 위쪽만 남기면 본문이 잘려서 center 를 씁니다.
+   */
+  focus?: 'top' | 'center'
 }
 
 /**
@@ -58,6 +63,7 @@ export const caseStudy = {
         '재고 7개 · 추천 48개 · 기타 10개',
         '상품 위치를 알려주는 매장 지도를 더했습니다.',
         '구역 27개를 좌표로 찍어 현위치와 목적지를 함께 표시합니다.',
+        '홈 화면에 추가하면 주소창 없이 앱처럼 실행됩니다.',
       ],
       evidence: 'src/data/phrases.json — 문구 99개, langs.ts — 언어 14개, zones.ts — 매장 구역 27개',
     },
@@ -108,6 +114,10 @@ export const caseStudy = {
           text: '전시된 쇼핑백을 고객이 손가락으로 가리킬 때 어느 쪽인지 애매할 때가 있습니다. 앱에서 버튼으로 직접 눌러 고를 수 있게 개선하였더니, 정확한 가격을 확정해 오안내를 줄일 수 있었습니다.',
         },
         {
+          label: '버튼 라벨',
+          text: '체인 버튼을 처음에는 크루가 넘기는 용도로 만들어 한글 "다음"만 넣었습니다. 그런데 고객에게 묻는 질문 문구에도 같은 버튼이 붙어 있었습니다. 고객이 답해야 하는데 버튼은 고객이 읽을 수 없는 한국어였습니다.\n\n고객 언어를 크게, 한글을 작게 함께 넣어 두 줄로 바꿨습니다. 고객은 위를 읽고 크루는 아래로 확인합니다. 이 화면을 보는 사람이 두 명이라는 것을 늦게 알아차렸습니다.',
+        },
+        {
           label: '즐겨찾기 버그',
           text: '처음 설계 당시에는 문구 id만 저장해 사용했으나, 문구를 정리하며 id를 다시 매기자 엉뚱한 문구가 등록됐습니다. 화면이 깨지지 않아 한참 뒤에야 버그임을 알게 됐습니다. id와 원문을 함께 저장해 둘 다 일치할 때만 유효하도록 개선하여 해결했습니다.',
         },
@@ -125,10 +135,26 @@ export const caseStudy = {
     },
   ] as CaseBlock[],
   shots: [
-    { src: '/projects/oy-lang.jpg', alt: 'OY-trans 언어 선택 — 14개 언어를 자국어로 표기' },
-    { src: '/projects/oy-phrases.jpg', alt: 'OY-trans 문구 목록 — 즐겨찾기와 카테고리' },
-    { src: '/projects/oy-chain.jpg', alt: 'OY-trans 문구 체인 — 고객이 직접 답을 고르는 화면' },
-    { src: '/projects/oy-map.jpg', alt: 'OY-trans 매장 지도 — 현위치와 목적지를 함께 표시' },
+    {
+      src: '/projects/oy-lang.jpg',
+      alt: 'OY-trans 언어 선택 — 14개 언어를 자국어로 표기',
+      focus: 'top',
+    },
+    {
+      src: '/projects/oy-phrases.jpg',
+      alt: 'OY-trans 문구 목록 — 즐겨찾기와 카테고리',
+      focus: 'top',
+    },
+    {
+      src: '/projects/oy-chain.jpg',
+      alt: 'OY-trans 문구 체인 — 고객 언어와 한글을 함께 표시한 선택 버튼',
+      focus: 'center',
+    },
+    {
+      src: '/projects/oy-map.jpg',
+      alt: 'OY-trans 매장 지도 — 현위치와 목적지를 함께 표시',
+      focus: 'center',
+    },
   ] as Shot[],
 }
 

@@ -13,16 +13,16 @@
 
 지면을 3단으로 나눕니다. 하나를 깊게 보이고, 나머지는 층을 밝혀서 짧게 둡니다.
 
-| 층 | 프로젝트 | 표기 |
-| --- | --- | --- |
-| **사례 연구** | [OY-trans](https://github.com/rami242424/oy-trans) | 근무 매장 크루 60여 명에게 공유 |
-| 개인 프로젝트 | [dayMatch](https://github.com/rami242424/dayMatch) | 직접 기획 · 구현 |
-| 요약 카드 | [CineSearch](https://github.com/rami242424/movie-app) | 학습 프로젝트 |
-| 요약 카드 | [Kanban Board](https://github.com/rami242424/kanban-board) | 학습 프로젝트 |
+| 층            | 프로젝트                                                   | 표기                         |
+| ------------- | ---------------------------------------------------------- | ---------------------------- |
+| **사례 연구** | [OY-trans](https://github.com/rami242424/oy-trans)         | 근무 매장 크루 88명에게 공유 |
+| 개인 프로젝트 | [dayMatch](https://github.com/rami242424/dayMatch)         | 직접 기획 · 구현             |
+| 요약 카드     | [CineSearch](https://github.com/rami242424/movie-app)      | 학습 프로젝트                |
+| 요약 카드     | [Kanban Board](https://github.com/rami242424/kanban-board) | 학습 프로젝트                |
 
-OY-trans는 7단락 사례 연구로 씁니다. 왜 만들었는지, 매장 응대 순서가 어떻게 자료 구조가 됐는지,
+OY-trans는 8단락 사례 연구로 씁니다. 왜 만들었는지, 매장 응대 순서가 어떻게 자료 구조가 됐는지,
 쓰면서 무엇을 고쳤는지, 그리고 **아직 확인하지 못한 것**까지 적습니다.
-마지막 항목을 빼면 나머지 여섯 개도 믿을 수 없게 되기 때문입니다.
+마지막 항목을 빼면 나머지 일곱 개도 믿을 수 없게 되기 때문입니다.
 
 섹션 순서 — 사례 연구 → 나머지 프로젝트 → 출판 → 궤적 → 기술 → 경력 → 연락처.
 
@@ -80,11 +80,14 @@ DESIGN.md는 [oh-my-design-cli](https://oh-my-design.kr)의 Core v2 계약 형�
 재진입할 때마다 다시 재생되면 스크롤을 되돌릴 때 산만해지기 때문입니다.
 
 ```ts
-const observer = new IntersectionObserver(([entry]) => {
-  if (!entry.isIntersecting) return
-  setVisible(true)
-  observer.disconnect()   // 한 번만 재생
-}, { threshold, rootMargin: '0px 0px -8% 0px' })
+const observer = new IntersectionObserver(
+  ([entry]) => {
+    if (!entry.isIntersecting) return;
+    setVisible(true);
+    observer.disconnect(); // 한 번만 재생
+  },
+  { threshold, rootMargin: "0px 0px -8% 0px" },
+);
 ```
 
 ### 2. 카운트업 — setInterval이 아니라 requestAnimationFrame
@@ -93,9 +96,9 @@ const observer = new IntersectionObserver(([entry]) => {
 `requestAnimationFrame`에서 **경과 시간 기준으로 진행률을 계산**하면 프레임이 밀려도 총 소요 시간은 같습니다.
 
 ```ts
-const progress = Math.min((now - startedAt) / duration, 1)
-const eased = 1 - Math.pow(1 - progress, 3)   // easeOutCubic
-setValue(Math.round(target * eased))
+const progress = Math.min((now - startedAt) / duration, 1);
+const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+setValue(Math.round(target * eased));
 ```
 
 ### 3. `prefers-reduced-motion`을 효과가 아니라 초기값으로 처리
@@ -104,11 +107,11 @@ setValue(Math.round(target * eased))
 `useState`의 초기화 함수에서 이미 최종값으로 시작하고, 효과는 그냥 빠져나오게 했습니다.
 
 ```ts
-const [value, setValue] = useState(() => (prefersReducedMotion() ? target : 0))
+const [value, setValue] = useState(() => (prefersReducedMotion() ? target : 0));
 useEffect(() => {
-  if (!start || prefersReducedMotion()) return
+  if (!start || prefersReducedMotion()) return;
   /* ... rAF ... */
-}, [target, start, duration])
+}, [target, start, duration]);
 ```
 
 CSS에서도 `@media (prefers-reduced-motion: reduce)`로 모든 트랜지션을 0으로 확정합니다.
@@ -118,6 +121,11 @@ CSS에서도 `@media (prefers-reduced-motion: reduce)`로 모든 트랜지션을
 기본값이면 "먼저 찾습니다"가 "먼 / 저 찾습니다"처럼 어절 중간에서 끊깁니다.
 `keep-all`로 어절 단위 줄바꿈을 강제하고, 긴 URL만 `overflow-wrap: break-word`로 예외 처리했습니다.
 
+이 사이트는 한국어 전용이라 `keep-all`이 안전합니다. 다만 14개 언어를 다루는 OY-trans에서는
+같은 속성이 중국어·일본어의 줄바꿈을 막아 글자가 화면 밖으로 넘쳤습니다.
+띄어쓰기가 없는 언어에서는 문장 전체가 한 단어로 취급되기 때문입니다.
+언어 조건이 달라지면 같은 CSS도 다르게 동작한다는 것을 그 프로젝트에서 확인했습니다.
+
 ### 5. 폰트를 CDN이 아니라 의존성으로
 
 Pretendard를 CDN `<link>`로 불러오면 그 CDN이 죽거나 느려질 때 화면이 통째로 기본 고딕으로 떨어집니다.
@@ -126,7 +134,7 @@ Pretendard를 CDN `<link>`로 불러오면 그 CDN이 죽거나 느려질 때 �
 
 ```ts
 // main.tsx
-import 'pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css'
+import "pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css";
 ```
 
 ### 6. 데모 영상 — webm(VP9) + mp4(H.264) 두 벌
@@ -172,6 +180,9 @@ src/
     ├── Reveal.tsx             # 등장 래퍼 (계단식 지연 최대 6개)
     ├── Nav.tsx                # 스크롤 시 blur 배경 + 활성 밑줄
     ├── Hero.tsx
+    ├── CaseStudy.tsx          # OY-trans 8단락 사례 연구
+    ├── ShotButton.tsx         # 썸네일 (focus 값으로 자를 기준점 결정)
+    ├── Lightbox.tsx           # 원본 보기
     ├── Projects.tsx           # 프로젝트 카드 + 라이트박스
     ├── Publication.tsx        # 출간 기술서
     ├── Track.tsx              # 공대 → 구매팀 → 매장·개발
