@@ -141,7 +141,7 @@ export const caseStudy = {
       focus: 'top',
     },
     {
-      src: '/projects/oy-phrases.jpg',
+      src: '/projects/oy-phrases.jpeg',
       alt: 'OY-trans 문구 목록 — 즐겨찾기와 카테고리',
       focus: 'top',
     },
