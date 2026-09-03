@@ -136,7 +136,7 @@ export const caseStudy = {
   ] as CaseBlock[],
   shots: [
     {
-      src: '/projects/oy-lang.jpg',
+      src: '/projects/oy-lang.jpeg',
       alt: 'OY-trans 언어 선택 — 14개 언어를 자국어로 표기',
       focus: 'top',
     },
