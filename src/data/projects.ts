@@ -151,7 +151,7 @@ export const caseStudy = {
       focus: 'center',
     },
     {
-      src: '/projects/oy-map.jpg',
+      src: '/projects/oy-map.jpeg',
       alt: 'OY-trans 매장 지도 — 현위치와 목적지를 함께 표시',
       focus: 'center',
     },
