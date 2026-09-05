@@ -89,6 +89,7 @@ export const caseStudy = {
         '피부 타입이 어떻게 되세요? → 건성 / 지성 / 복합성  (갈래 3개)',
       ],
       listPlain: true,
+      evidence: '같은 기준으로 라우터도 넣지 않았습니다. 화면이 6개이고 순서대로만 이동하며, 주소를 공유할 일이 없습니다.\n\n오히려 고객 화면은 주소가 남으면 위험합니다. 뒤로 가기로 앞 고객에게 보여준 문구가 다시 뜰 수 있기 때문입니다. 화면 상태 하나로 전환하고, 돌아가는 곳은 함수 이름에 적었습니다. 반대로 칸반 보드는 보드마다 주소가 필요해서 라우터를 썼습니다.',
     },
     {
       no: '05',
@@ -136,12 +137,12 @@ export const caseStudy = {
   ] as CaseBlock[],
   shots: [
     {
-      src: '/projects/oy-lang.jpeg',
+      src: '/projects/oy-lang.jpg',
       alt: 'OY-trans 언어 선택 — 14개 언어를 자국어로 표기',
       focus: 'top',
     },
     {
-      src: '/projects/oy-phrases.jpeg',
+      src: '/projects/oy-phrases.jpg',
       alt: 'OY-trans 문구 목록 — 즐겨찾기와 카테고리',
       focus: 'top',
     },
@@ -151,7 +152,7 @@ export const caseStudy = {
       focus: 'center',
     },
     {
-      src: '/projects/oy-map.jpeg',
+      src: '/projects/oy-map.jpg',
       alt: 'OY-trans 매장 지도 — 현위치와 목적지를 함께 표시',
       focus: 'center',
     },
