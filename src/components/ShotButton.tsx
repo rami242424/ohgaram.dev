@@ -1,10 +1,5 @@
 import type { Shot } from '../data/projects'
 
-/**
- * 썸네일은 잘라서(cover) 보여줍니다.
- * 어디를 남길지는 이미지마다 달라서, 데이터의 focus 값으로 정합니다.
- * 목록 화면은 위쪽이 중요하고, 고객 화면은 글이 가운데 있어서 top 으로 자르면 사라집니다.
- */
 export default function ShotButton({
   shot,
   onOpen,
