@@ -6,7 +6,7 @@ export default function Experience() {
     <section className="section shell" id="experience">
       <Reveal className="section-head">
         <span className="t-label">Experience</span>
-        <h2 className="t-section">경력 · 학력</h2>
+        <h2 className="t-section">경력</h2>
       </Reveal>
 
       <div className="track">
@@ -29,6 +29,10 @@ export default function Experience() {
           </Reveal>
         ))}
       </div>
+
+      <Reveal className="section-head section-head--sub">
+        <h3 className="t-section">학력 · 어학</h3>
+      </Reveal>
 
       <Reveal className="facts facts--edu" delay={1}>
         {education.map((row) => (

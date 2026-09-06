@@ -206,6 +206,10 @@ button {
 .section-head {
   margin-bottom: var(--space-2xl);
 }
+/* 한 섹션 안에서 목록이 두 덩어리로 나뉠 때(경력 → 학력) 쓰는 소제목 */
+.section-head--sub {
+  margin-top: var(--space-2xl);
+}
 .section-head .t-label {
   display: block;
   margin-bottom: var(--space-md);
@@ -1098,6 +1102,7 @@ button {
   content: none;
 }
 
+/* 라벨이 붙은 항목은 서로 붙어 보이지 않게 간격을 넓힙니다. */
 .case__list:has(.case__item) {
   gap: var(--space-md);
 }
@@ -1106,6 +1111,7 @@ button {
   margin-bottom: 6px;
   padding: 2px 8px;
   border-radius: 6px;
+  /* 라임 원색 면은 한 화면에 한 곳만 둡니다. 목록 라벨은 30% 로 옅게 깝니다. */
   background: #ddf2bc;
   color: var(--fg);
   font-size: 14px;
@@ -1154,6 +1160,8 @@ button {
     font-size: 14px;
   }
 }
+
+/* --------------------------------------------------------------- 한국어 줄바꿈 보강 */
 
 .t-body,
 .t-lead,

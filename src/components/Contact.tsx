@@ -11,8 +11,7 @@ function CopyButton({ text, label }: { text: string; label: string }) {
       setCopied(true)
       window.setTimeout(() => setCopied(false), 1600)
     } catch {
-      // 클립보드 권한이 없는 환경(일부 인앱 브라우저)에서는 조용히 넘어갑니다.
-      // 값은 화면에 그대로 보이므로 직접 선택해서 복사할 수 있습니다.
+      //
     }
   }
 

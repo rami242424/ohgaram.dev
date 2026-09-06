@@ -15,9 +15,9 @@ export const stats = [
 
 export const stack = [
   { group: '매 프로젝트에서', items: ['React 18 / 19', 'TypeScript', 'JavaScript (ES2022)', 'Vite', 'Git / GitHub'] },
-  { group: '스타일', items: ['Tailwind CSS (2)', 'styled-components (1)', 'CSS Modules (1)', '반응형 · 접근성'] },
-  { group: '상태 · 데이터', items: ['useReducer (1)', 'Recoil · recoil-persist (1)', 'Custom Hooks', 'Supabase (1)', 'REST API'] },
-  { group: '테스트 · 배포', items: ['Vitest (1)', 'React Router (2)', 'PWA (1)', 'Vercel · Netlify'] },
+  { group: '스타일', items: ['Tailwind CSS', 'styled-components', 'CSS Modules', '반응형 · 접근성'] },
+  { group: '상태 · 데이터', items: ['useReducer', 'Recoil · recoil-persist', 'Custom Hooks', 'Supabase', 'REST API'] },
+  { group: '테스트 · 배포', items: ['Vitest', 'React Router', 'PWA', 'Vercel · Netlify'] },
 ] as const
 
 export const experience = [
