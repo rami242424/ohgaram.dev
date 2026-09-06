@@ -11,7 +11,7 @@ function CopyButton({ text, label }: { text: string; label: string }) {
       setCopied(true)
       window.setTimeout(() => setCopied(false), 1600)
     } catch {
-      //
+      // 값은 화면에 그대로 보이므로 직접 선택해서 복사할 수 있습니다.
     }
   }
 
@@ -31,14 +31,10 @@ export default function Contact() {
           <span className="t-label" style={{ display: 'block', marginBottom: 'var(--space-md)' }}>
             Contact
           </span>
-          <h2 className="t-display contact__title">
-            궁금한 게 있으면
-            <br />
-            <span className="mark">편하게 연락</span> 주세요
-          </h2>
+          <h2 className="t-section contact__title">궁금한 게 있으면 편하게 연락 주세요.</h2>
           <p className="t-body" style={{ maxWidth: '58ch' }}>
-            코드는 모두 GitHub에 공개되어 있습니다. 각 프로젝트 README에 여기 다 담지 못한 판단
-            과정과 트러블슈팅을 정리해두었으니, 궁금하신 부분이 있으시면 함께 보셔도 좋습니다.
+            코드는 GitHub에 공개했습니다. 각 저장소 README에 기획 과정과 트러블슈팅을 상세하게
+            정리해두었습니다.
           </p>
         </Reveal>
 
