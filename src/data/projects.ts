@@ -1,41 +1,21 @@
 export type Shot = {
   src: string
   alt: string
-  /** 브라우저별 코덱 지원이 갈려서 webm(VP9) + mp4(H.264) 두 벌을 함께 둡니다. */
   sources?: { src: string; type: string }[]
   poster?: string
   type?: 'video'
   wide?: boolean
-  /**
-   * 썸네일에서 남길 부분. 기본은 위쪽입니다.
-   * 글이 화면 가운데 있는 고객 표시 화면은 위쪽만 남기면 본문이 잘려서 center 를 씁니다.
-   */
   focus?: 'top' | 'center'
 }
 
-/**
- * 프로젝트 대표색. 각 앱 화면에서 가져왔습니다.
- * 스택 칩에만 쓰고 버튼·제목·배지로 번지지 않습니다. (DESIGN.md 참고)
- */
 export type Tint = 'lime' | 'violet' | 'red' | 'navy'
-
-/* ------------------------------------------------------------------ 사례 연구 */
-
-/**
- * 목록 항목.
- * 문자열이면 한 줄, { label, text } 이면 앞머리에 배경 강조가 붙습니다.
- */
 export type CaseListItem = string | { label: string; text: string }
-
 export type CaseBlock = {
   no: string
   title: string
   body: string
-  /** 강조할 흐름이나 목록. 없으면 본문만 나옵니다. */
   list?: CaseListItem[]
-  /** 도식(체인 그림)은 앞에 - 를 붙이지 않습니다. */
   listPlain?: boolean
-  /** 코드나 데이터에서 그대로 확인되는 사실 */
   evidence?: string
 }
 
@@ -46,7 +26,6 @@ export const caseStudy = {
   demo: 'https://oy-trans.netlify.app',
   github: 'https://github.com/rami242424/oy-trans',
   stack: ['React 19', 'TypeScript', 'Tailwind CSS 4', 'PWA', 'localStorage', 'Netlify'],
-  /** 스택 칩 색. 앱 화면에서 가져온 대표색이며, 칩 밖으로는 쓰지 않습니다. */
   tint: 'lime' as Tint,
   blocks: [
     {
@@ -137,12 +116,12 @@ export const caseStudy = {
   ] as CaseBlock[],
   shots: [
     {
-      src: '/projects/oy-lang.jpg',
+      src: '/projects/oy-lang.jpeg',
       alt: 'OY-trans 언어 선택 — 14개 언어를 자국어로 표기',
       focus: 'top',
     },
     {
-      src: '/projects/oy-phrases.jpg',
+      src: '/projects/oy-phrases.jpeg',
       alt: 'OY-trans 문구 목록 — 즐겨찾기와 카테고리',
       focus: 'top',
     },
@@ -152,7 +131,7 @@ export const caseStudy = {
       focus: 'center',
     },
     {
-      src: '/projects/oy-map.jpg',
+      src: '/projects/oy-map.jpeg',
       alt: 'OY-trans 매장 지도 — 현위치와 목적지를 함께 표시',
       focus: 'center',
     },
