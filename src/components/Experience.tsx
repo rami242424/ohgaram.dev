@@ -17,11 +17,15 @@ export default function Experience() {
               <span className="track__role">{job.org}</span>
               <span className="t-meta">{job.role}</span>
             </div>
-            <ul className="track__list track__list--flush">
-              {job.points.map((point) => (
-                <li key={point}>{point}</li>
-              ))}
-            </ul>
+            <div>
+              <h3 className="t-card track__title">{job.title}</h3>
+              <p className="t-body">{job.body}</p>
+              <ul className="track__list">
+                {job.points.map((point) => (
+                  <li key={point}>{point}</li>
+                ))}
+              </ul>
+            </div>
           </Reveal>
         ))}
       </div>

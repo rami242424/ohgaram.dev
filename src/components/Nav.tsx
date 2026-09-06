@@ -5,7 +5,6 @@ const LINKS = [
   { id: 'oy-trans', label: 'Case Study' },
   { id: 'projects', label: 'Projects' },
   { id: 'publication', label: 'Publication' },
-  { id: 'track', label: 'Background' },
   { id: 'stack', label: 'Skills' },
   { id: 'experience', label: 'Experience' },
   { id: 'contact', label: 'Contact' },

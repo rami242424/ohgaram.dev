@@ -9,7 +9,6 @@ type Props = {
   id?: string
 }
 
-/** 스크롤 등장 래퍼. delay는 같은 섹션 안에서 최대 6개까지만 계단식으로 씁니다. */
 export default function Reveal({ children, as: Tag = 'div', delay = 0, className = '', id }: Props) {
   const { ref, visible } = useReveal()
   return (
