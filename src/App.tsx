@@ -24,7 +24,7 @@ export default function App() {
         <Contact />
       </main>
       <footer className="shell footer">
-        <span className="t-meta">© 2026 오가람</span>
+        <span className="t-meta">2026 오가람</span>
         <span className="t-meta">React · TypeScript · Vite</span>
       </footer>
     </>
