@@ -31,7 +31,7 @@ export default function Contact() {
           <span className="t-label" style={{ display: 'block', marginBottom: 'var(--space-md)' }}>
             Contact
           </span>
-          <h2 className="t-section contact__title">궁금하신 점이 있으시면, 편하게 연락 주세요.</h2>
+          <h2 className="t-section contact__title">궁금하신 점이 있으시다면, 언제든지 편하게 연락 주세요.</h2>
           <p className="t-body" style={{ maxWidth: '58ch' }}>
             코드는 GitHub에 전체공개 되어있습니다. 각 저장소 README에 기획 과정과 트러블슈팅의 상세내용도 정리해두었습니다.
           </p>
