@@ -42,7 +42,7 @@ export default function Hero() {
         <h1 className="t-hero hero__title">
           반복되는 고객 응대를
           <br />
-          <span className="mark">앱 하나로 정리</span>했습니다.
+          <span className="mark">코드로 정리</span>했습니다.
         </h1>
       </Reveal>
 
