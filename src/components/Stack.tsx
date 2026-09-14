@@ -7,7 +7,7 @@ export default function Stack() {
       <div className="shell">
         <Reveal className="section-head">
           <span className="t-label">Tech Stack</span>
-          <h2 className="t-section">쓰고 있는 것들</h2>
+          <h2 className="t-section">사용 하는 기술</h2>
         </Reveal>
         <div className="stack-grid">
           {stack.map((group, i) => (
