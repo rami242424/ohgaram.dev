@@ -1,9 +1,5 @@
 import { useEffect, useState } from 'react'
 
-/**
- * 현재 화면에 보이는 섹션 id를 돌려줍니다.
- * 여러 섹션이 동시에 걸릴 수 있어서, 교차 비율이 가장 큰 하나만 활성으로 봅니다.
- */
 export function useActiveSection(ids: readonly string[]) {
   const [active, setActive] = useState(ids[0] ?? '')
 
