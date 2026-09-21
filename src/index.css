@@ -228,9 +228,7 @@ button {
 
 /* 라임 마킹 — 면으로만 사용. 텍스트 색으로는 절대 쓰지 않음 */
 /* 끊기면 안 되는 어절 묶음. 짧은 구절에만 씁니다. */
-.nb {
-  white-space: nowrap;
-}
+
 
 .mark {
   background: linear-gradient(transparent 58%, var(--accent) 58%);
@@ -397,7 +395,7 @@ button {
   margin-bottom: var(--space-lg);
 }
 .hero__lead {
-  max-width: 56ch;
+  max-width: 960px;
   margin-bottom: var(--space-xl);
 }
 .hero__actions {
