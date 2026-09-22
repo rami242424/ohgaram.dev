@@ -19,7 +19,7 @@ export default function CaseStudy() {
           <span className="mark">무엇이 필요한지 바로 보입니다</span>.
         </h2>
         <p className="t-body">
-          제가 근무하는 올리브영 인천공항점에서 사용하는 고객 응대 앱입니다.
+          현재 근무하고 있는 올리브영 인천공항점에서 사용하는 고객 응대 앱입니다.
         </p>
       </Reveal>
 
