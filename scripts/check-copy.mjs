@@ -58,14 +58,6 @@ const OVERUSED = [
   { pattern: /에 대한|에 대해/g, limit: 2, why: '`~에 대한` 남용.' },
 ]
 
-/**
- * 길이를 잴 단위를 뽑습니다.
- *
- * 1) 따옴표 안 문자열은 각각 따로 잽니다.
- *    배열의 목록 항목을 이어 붙이면 한 문장처럼 보여 오탐이 납니다.
- * 2) 문자열을 걷어낸 나머지 한국어는 JSX 본문입니다.
- *    JSX 는 한 문장이 여러 줄에 걸쳐 있어서 이어지는 줄을 묶어서 잽니다.
- */
 function measurable(source) {
   const units = []
   const lineOf = (index) => source.slice(0, index).split('\n').length
