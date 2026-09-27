@@ -24,7 +24,7 @@ const BANNED = [
   { pattern: /답니다/g, why: '말끝 버릇.' },
   { pattern: /인 것 같습니다/g, why: '본인 경험을 추측형으로 쓰지 않습니다.' },
 
-  // 상투어
+
   { pattern: /시너지/g, why: '상투어.' },
   { pattern: /기여하고자/g, why: '상투어.' },
   { pattern: /도모/g, why: '상투어.' },
@@ -36,7 +36,7 @@ const BANNED = [
   { pattern: /발돋움/g, why: '상투어.' },
   { pattern: /밑거름/g, why: '상투어.' },
 
-  // 번역투
+
   { pattern: /라는 점에 착안/g, why: '번역투.' },
   { pattern: /로 이어지고 있습니다/g, why: '번역투.' },
   { pattern: /출발점을 (바꿨|옮겼)/g, why: '번역투.' },
