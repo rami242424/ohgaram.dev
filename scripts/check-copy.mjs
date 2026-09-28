@@ -15,7 +15,6 @@ const ROOT = new URL('..', import.meta.url).pathname
 const TARGET_DIRS = ['src/data', 'src/components']
 const MAX_SENTENCE = 90
 
-/** 어길 수 없는 규칙. 하나라도 걸리면 실패합니다. */
 const BANNED = [
   { pattern: /더군요/g, why: '말끝 버릇. 평서형(~했습니다)으로 쓰십시오.' },
   { pattern: /거든요/g, why: '말끝 버릇. 구어체 설명조입니다.' },
