@@ -4,9 +4,6 @@
  *
  * 사람이 지키는 규칙은 네 번째 수정에서 무너집니다.
  * 색과 간격은 DESIGN.md + CSS 토큰이 잡아주는데 글에는 그런 장치가 없어서
- * 매번 다른 기준으로 다시 쓰이는 문제가 있었습니다. 그래서 만들었습니다.
- *
- * 검사 대상: src/data/*.ts, src/components/*.tsx 안의 한국어 문장
  */
 import { readdirSync, readFileSync, statSync } from 'node:fs'
 import { join, relative } from 'node:path'
